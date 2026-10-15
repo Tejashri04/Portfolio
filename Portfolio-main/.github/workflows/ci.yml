@@ -9,6 +9,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -19,22 +22,24 @@ jobs:
 
       - name: Verify index.html exists
         run: |
-          if [ ! -f index.html ]; then
-            echo "index.html not found!"
+          if [ ! -f Portfolio-main/index.html ]; then
+            echo "index.html not found inside Portfolio-main!"
             exit 1
           fi
+          echo "index.html exists."
 
       - name: Verify assets folder exists
         run: |
-          if [ ! -d assets ]; then
-            echo "assets folder not found!"
+          if [ ! -d Portfolio-main/assets ]; then
+            echo "assets folder not found inside Portfolio-main!"
             exit 1
           fi
+          echo "assets folder exists."
 
       - name: Upload Website Artifact
         uses: actions/upload-artifact@v4
         with:
           name: portfolio-artifact
           path: |
-            index.html
-            assets/
+            Portfolio-main/index.html
+            Portfolio-main/assets/
