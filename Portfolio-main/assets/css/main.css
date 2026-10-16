@@ -802,9 +802,17 @@ section,
   padding: 2rem;
 }
 
+/* .hero .hero-image img {
+  position: relative;
+  z-index: 2;
+} */
+
 .hero .hero-image img {
   position: relative;
   z-index: 2;
+  width: 125%;
+  max-width: none;
+  margin-left: -12.5%;
 }
 
 .hero .hero-image .shape-1,
